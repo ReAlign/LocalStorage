@@ -1,0 +1,10 @@
+{
+    "extends": "kaola/esnext",
+    "globals": {
+        "module": true,
+        "require": true
+    },
+    "rules": {
+
+    }
+}
