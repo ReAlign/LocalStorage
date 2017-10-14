@@ -5,6 +5,7 @@
 
 [travis-image]: http://img.shields.io/travis/ReAlign/fastpage.svg
 
+# Introduction
 Encapsulate a simple LocalStorage Class
 
 # Usage
