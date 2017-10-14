@@ -1,0 +1,22 @@
+{
+  "name": "localstorage",
+  "version": "0.1.0",
+  "description": "Encapsulate a simple LocalStorage Class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReAlign/LocalStorage.git"
+  },
+  "keywords": [
+    "localStorage"
+  ],
+  "author": "ReAlign",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReAlign/LocalStorage/issues"
+  },
+  "homepage": "https://github.com/ReAlign/LocalStorage#readme"
+}
