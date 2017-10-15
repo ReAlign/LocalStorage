@@ -84,10 +84,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_util__ = __webpack_require__(2);
 
 
-let Storage = {
+let LocalStorage = {
     storage: window.localStorage,
-    set(key = '', value = '') {
+    set(key = '', value = '', cover = false) {
         if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+            // 不覆盖
+            if(!cover) {
+                if(this.get(key) != null && this.get(key) != false) {
+                    console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
+                    return false;
+                }
+            }
             this.storage.setItem(key, JSON.stringify(value));
             let obj = {};
             obj.key = key;
@@ -148,7 +155,7 @@ let Storage = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Storage);
+/* harmony default export */ __webpack_exports__["a"] = (LocalStorage);
 
 /***/ }),
 /* 1 */

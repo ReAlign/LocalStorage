@@ -1,9 +1,16 @@
 import _ from './lib/util';
 
-let Storage = {
+let LocalStorage = {
     storage: window.localStorage,
-    set(key = '', value = '') {
+    set(key = '', value = '', cover = false) {
         if (key && _.support()) {
+            // 不覆盖
+            if(!cover) {
+                if(this.get(key) != null && this.get(key) != false) {
+                    console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
+                    return false;
+                }
+            }
             this.storage.setItem(key, JSON.stringify(value));
             let obj = {};
             obj.key = key;
@@ -64,4 +71,4 @@ let Storage = {
     }
 };
 
-export default Storage;
+export default LocalStorage;

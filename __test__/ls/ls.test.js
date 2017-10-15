@@ -13,7 +13,7 @@ const _obj1 = {
 
 // set
 test('setString1', function() {
-    expect(LS.set('str1', _str1)).not.toBeNull();
+    expect(LS.set('str1', _str1, true)).not.toBeNull();
 });
 test('setString2', function() {
     expect(LS.set('str2')).not.toBeNull();
@@ -23,7 +23,7 @@ test('setString3', function() {
 });
 
 test('setNumber1', function() {
-    expect(LS.set('num1', _num1)).not.toBeNull();
+    expect(LS.set('num1', _num1, true)).not.toBeNull();
 });
 test('setNumber2', function() {
     expect(LS.set('num2')).not.toBeNull();
@@ -33,7 +33,7 @@ test('setNumber3', function() {
 });
 
 test('setArray1', function() {
-    expect(LS.set('arr1', _arr1)).not.toBeNull();
+    expect(LS.set('arr1', _arr1, true)).not.toBeNull();
 });
 test('setArray2', function() {
     expect(LS.set('arr2')).not.toBeNull();
@@ -43,7 +43,7 @@ test('setArray3', function() {
 });
 
 test('setObject1', function() {
-    expect(LS.set('obj1', _obj1)).not.toBeNull();
+    expect(LS.set('obj1', _obj1, true)).not.toBeNull();
 });
 test('setObject2', function() {
     expect(LS.set('obj2')).not.toBeNull();
