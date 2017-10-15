@@ -27,7 +27,7 @@ import LS from './src/localstorage';
 
 ```
 存储数据，返回 set 的对象
-* set(key, value)
+* set(key, value, cover = false)
 * return {
     key: key,
     val: value
