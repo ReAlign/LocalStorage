@@ -54,8 +54,8 @@ let Storage = {
         if (_.support()) {
             let allKeys = this.getKeyList();
             let res = {};
-            for (let i of allKeys) {
-                res[i] = this.get(i);
+            for (let k of allKeys) {
+                res[k] = this.get(k);
             }
 
             return res;

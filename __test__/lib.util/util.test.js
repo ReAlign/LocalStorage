@@ -28,6 +28,10 @@ test('util', function() {
     expect(_.support()).toBe(true);
 });
 
+test('jsonParseError', function() {
+    expect(_.jsonParse('')).toBeNull();
+});
+
 test('jsonParseNumber1', function() {
      expect(_.jsonParse(_num11) === _num12).toBe(true);
 });

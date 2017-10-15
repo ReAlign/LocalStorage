@@ -138,8 +138,8 @@ let Storage = {
         if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             let allKeys = this.getKeyList();
             let res = {};
-            for (let i of allKeys) {
-                res[i] = this.get(i);
+            for (let k of allKeys) {
+                res[k] = this.get(k);
             }
 
             return res;
@@ -215,7 +215,7 @@ let _ = {
                 }
 
                 // Numbers, Strings, Functions, Booleans must be strictly equal
-                if (typeof (x[p]) !== "object") {
+                if (typeof (x[p]) !== 'object') {
                     return false;
                 }
 
