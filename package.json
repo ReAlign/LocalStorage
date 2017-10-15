@@ -14,7 +14,8 @@
   },
   "jest": {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "browser": true
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -58,6 +59,8 @@
     "husky": "^0.13.4",
     "lint-staged": "^3.6.1",
     "jest": "^21.2.1",
-    "codecov": "^2.3.0"
+    "codecov": "^2.3.0",
+    "jsdom": "^11.3.0",
+    "localstorage-mocker": "^1.0.0"
   }
 }

@@ -1,5 +1,22 @@
 let _ = {
-    cmp(x, y) {
+    support() {
+        if (!window.localStorage) {
+            console.error('(〒︿〒) 该浏览器不支持localstorage');
+            return false;
+        }
+
+        return true;
+    },
+    jsonParse(string) {
+        let res = null;
+        try {
+            res = JSON.parse(string);
+        } catch (e) {
+            return null;
+        }
+        return res;
+    },
+    compareObject(x, y) {
         // If both x and y are null or undefined and exactly the same
         if (x === y) {
             return true;
@@ -16,7 +33,7 @@ let _ = {
             return false;
         }
 
-        for (var p in x) {
+        for (let p in x) {
             //Inherited properties were tested using x.constructor === y.constructor
             if (x.hasOwnProperty(p)) {
                 // Allows comparing x[ p ] and y[ p ] when set to undefined
@@ -30,7 +47,7 @@ let _ = {
                 }
 
                 // Numbers, Strings, Functions, Booleans must be strictly equal
-                if (typeof (x[p]) !== "object") {
+                if (typeof (x[p]) !== 'object') {
                     return false;
                 }
 
@@ -41,7 +58,7 @@ let _ = {
             }
         }
 
-        for (p in y) {
+        for (let p in y) {
             // allows x[ p ] to be set to undefined
             if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
                 return false;

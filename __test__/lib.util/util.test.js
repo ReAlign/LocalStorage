@@ -1,6 +1,6 @@
+require('localstorage-mocker');
 
-const util = require('./../src/util');
-const _ = require('./ls.t.function');
+const _ = require('./../../src/lib/util');
 
 const _num11 = '123';
 const _num12 = 123;
@@ -25,29 +25,29 @@ const _arr21 = '[1,2,"3"]';
 const _arr22 = [1, 2, '3', 4];
 
 test('util', function() {
-     expect(util.support()).toBe(false);
+    expect(_.support()).toBe(true);
 });
 
 test('jsonParseNumber1', function() {
-     expect(util.jsonParse(_num11) === _num12).toBe(true);
+     expect(_.jsonParse(_num11) === _num12).toBe(true);
 });
 
 test('jsonParseNumber2', function() {
-    expect(util.jsonParse(_num21) === _num22).toBe(false);
+    expect(_.jsonParse(_num21) === _num22).toBe(false);
 });
 
 test('jsonParseObject1', function() {
-    expect(_.cmp(util.jsonParse(_obj11), _obj12)).toBe(true);
+    expect(_.compareObject(_.jsonParse(_obj11), _obj12)).toBe(true);
 });
 
 test('jsonParseObject2', function() {
-    expect(_.cmp(util.jsonParse(_obj21), _obj22)).toBe(false);
+    expect(_.compareObject(_.jsonParse(_obj21), _obj22)).toBe(false);
 });
 
 test('jsonParseArray1', function() {
-    expect(_.cmp(util.jsonParse(_arr11), _arr12)).toBe(true);
+    expect(_.compareObject(_.jsonParse(_arr11), _arr12)).toBe(true);
 });
 
 test('jsonParseArray2', function() {
-    expect(_.cmp(util.jsonParse(_arr21), _arr22)).toBe(false);
+    expect(_.compareObject(_.jsonParse(_arr21), _arr22)).toBe(false);
 });

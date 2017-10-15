@@ -81,34 +81,49 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_util__ = __webpack_require__(2);
 
 
 let Storage = {
     storage: window.localStorage,
     set(key = '', value = '') {
-        this.storage.setItem(key, JSON.stringify(value));
-        return this.get(key);
+        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+            this.storage.setItem(key, JSON.stringify(value));
+            let obj = {};
+            obj.key = key;
+            obj.val = this.get(key);
+            return obj;
+        }
+        return false;
     },
     get(key = '') {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].support()) {
-            return __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].jsonParse(this.storage.getItem(key));
+        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+            return __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].jsonParse(this.storage.getItem(key));
         }
+        return false;
+    },
+    has(key = '') {
+        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+            return this.get(key) != null;
+        }
+        return false;
     },
     remove(key = '') {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].support()) {
+        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             this.storage.removeItem(key);
             return !this.get(key);
         }
+        return false;
     },
     clear() {
-        if (__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].support()) {
+        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             this.storage.clear();
             return !this.storage.length;
         }
+        return false;
     },
     getKeyList() {
-        if (__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].support()) {
+        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             let list = [];
 
             for (let i = 0; i < this.storage.length; i++) {
@@ -117,9 +132,10 @@ let Storage = {
 
             return list;
         }
+        return false;
     },
     getAll() {
-        if (__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].support()) {
+        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             let allKeys = this.getKeyList();
             let res = {};
             for (let i of allKeys) {
@@ -128,6 +144,7 @@ let Storage = {
 
             return res;
         }
+        return false;
     }
 };
 
@@ -166,6 +183,56 @@ let _ = {
             return null;
         }
         return res;
+    },
+    compareObject(x, y) {
+        // If both x and y are null or undefined and exactly the same
+        if (x === y) {
+            return true;
+        }
+
+        // If they are not strictly equal, they both need to be Objects
+        if (!(x instanceof Object) || !(y instanceof Object)) {
+            return false;
+        }
+
+        //They must have the exact same prototype chain,the closest we can do is
+        //test the constructor.
+        if (x.constructor !== y.constructor) {
+            return false;
+        }
+
+        for (let p in x) {
+            //Inherited properties were tested using x.constructor === y.constructor
+            if (x.hasOwnProperty(p)) {
+                // Allows comparing x[ p ] and y[ p ] when set to undefined
+                if (!y.hasOwnProperty(p)) {
+                    return false;
+                }
+
+                // If they have the same strict value or identity then they are equal
+                if (x[p] === y[p]) {
+                    continue;
+                }
+
+                // Numbers, Strings, Functions, Booleans must be strictly equal
+                if (typeof (x[p]) !== "object") {
+                    return false;
+                }
+
+                // Objects and Arrays must be tested recursively
+                if (!Object.equals(x[p], y[p])) {
+                    return false;
+                }
+            }
+        }
+
+        for (let p in y) {
+            // allows x[ p ] to be set to undefined
+            if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
+                return false;
+            }
+        }
+        return true;
     }
 };
 
