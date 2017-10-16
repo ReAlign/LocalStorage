@@ -1,6 +1,7 @@
 # LocalStorage
 [![NPM travis][travis-image]][github-url]
 [![codebeat badge][codebeat-image]][codebeat-url]
+[![codecov][codecov-image]][codecov-url]
 
 [codebeat-url]: https://codebeat.co/projects/github-com-realign-localstorage-master
 [github-url]: https://github.com/ReAlign/fastpage
@@ -8,6 +9,8 @@
 [travis-image]: http://img.shields.io/travis/ReAlign/fastpage.svg
 [codebeat-image]: https://codebeat.co/badges/d96c6ab1-b8be-40b6-991b-60d88d594198
 
+[codecov-url]: https://codecov.io/gh/ReAlign/LocalStorage
+[codecov-image]: https://codecov.io/gh/ReAlign/LocalStorage/branch/master/graph/badge.svg
 # Introduction
 1. 原生 `localStorage` 只能存储字符串
 2. 对于复杂数据结构，在存储之前，必须先进行序列化
