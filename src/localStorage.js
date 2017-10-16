@@ -5,11 +5,9 @@ let LocalStorage = {
     set(key = '', value = '', cover = false) {
         if (key && _.support()) {
             // 不覆盖
-            if(!cover) {
-                if(this.get(key) != null && this.get(key) != false) {
-                    console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
-                    return false;
-                }
+            if(!cover && this.get(key) != null && this.get(key) != false) {
+                console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
+                return false;
             }
             this.storage.setItem(key, JSON.stringify(value));
             let obj = {};
