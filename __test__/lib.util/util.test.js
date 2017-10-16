@@ -1,6 +1,7 @@
 require('localstorage-mocker');
 
 const _ = require('./../../src/lib/util');
+const _t = require('n-tools');
 
 const _num11 = '123';
 const _num12 = 123;
@@ -41,17 +42,17 @@ test('jsonParseNumber2', function() {
 });
 
 test('jsonParseObject1', function() {
-    expect(_.compareObject(_.jsonParse(_obj11), _obj12)).toBe(true);
+    expect(_t.compareObject(_.jsonParse(_obj11), _obj12)).toBe(true);
 });
 
 test('jsonParseObject2', function() {
-    expect(_.compareObject(_.jsonParse(_obj21), _obj22)).toBe(false);
+    expect(_t.compareObject(_.jsonParse(_obj21), _obj22)).toBe(false);
 });
 
 test('jsonParseArray1', function() {
-    expect(_.compareObject(_.jsonParse(_arr11), _arr12)).toBe(true);
+    expect(_t.compareObject(_.jsonParse(_arr11), _arr12)).toBe(true);
 });
 
 test('jsonParseArray2', function() {
-    expect(_.compareObject(_.jsonParse(_arr21), _arr22)).toBe(false);
+    expect(_t.compareObject(_.jsonParse(_arr21), _arr22)).toBe(false);
 });

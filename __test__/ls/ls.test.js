@@ -2,6 +2,7 @@ require('localstorage-mocker');
 
 const LS = require('./../../src/localstorage');
 const _ = require('./../../src/lib/util');
+const _t = require('n-tools');
 
 const _num1 = 123;
 const _str1 = '123';
@@ -167,5 +168,5 @@ test('getKeyList2', function() {
 
 // getAll
 test('getAll2', function() {
-    expect(_.compareObject(LS.getAll(), {})).toBe(true);
+    expect(_t.compareObject(LS.getAll(), {})).toBe(true);
 });
