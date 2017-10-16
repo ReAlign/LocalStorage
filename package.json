@@ -61,6 +61,6 @@
     "jest": "^21.2.1",
     "codecov": "^2.3.0",
     "jsdom": "^11.3.0",
-    "localstorage-mocker": "^1.2.0"
+    "localstorage-mocker": "^1.3.0"
   }
 }
