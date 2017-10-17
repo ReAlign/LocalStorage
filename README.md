@@ -22,9 +22,18 @@
 
 # Usage
 
+#### ES6
 ```
 import LS from './src/localstorage';
 ```
+
+#### UMD
+
+```
+use ./dist/localstorage.js
+```
+
+***
 
 #### set
 

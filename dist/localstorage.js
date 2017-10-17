@@ -89,11 +89,9 @@ let LocalStorage = {
     set(key = '', value = '', cover = false) {
         if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
             // 不覆盖
-            if(!cover) {
-                if(this.get(key) != null && this.get(key) != false) {
-                    console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
-                    return false;
-                }
+            if(!cover && this.get(key) != null && this.get(key) != false) {
+                console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
+                return false;
             }
             this.storage.setItem(key, JSON.stringify(value));
             let obj = {};
@@ -190,56 +188,6 @@ let _ = {
             return null;
         }
         return res;
-    },
-    compareObject(x, y) {
-        // If both x and y are null or undefined and exactly the same
-        if (x === y) {
-            return true;
-        }
-
-        // If they are not strictly equal, they both need to be Objects
-        if (!(x instanceof Object) || !(y instanceof Object)) {
-            return false;
-        }
-
-        //They must have the exact same prototype chain,the closest we can do is
-        //test the constructor.
-        if (x.constructor !== y.constructor) {
-            return false;
-        }
-
-        for (let p in x) {
-            //Inherited properties were tested using x.constructor === y.constructor
-            if (x.hasOwnProperty(p)) {
-                // Allows comparing x[ p ] and y[ p ] when set to undefined
-                if (!y.hasOwnProperty(p)) {
-                    return false;
-                }
-
-                // If they have the same strict value or identity then they are equal
-                if (x[p] === y[p]) {
-                    continue;
-                }
-
-                // Numbers, Strings, Functions, Booleans must be strictly equal
-                if (typeof (x[p]) !== 'object') {
-                    return false;
-                }
-
-                // Objects and Arrays must be tested recursively
-                if (!Object.equals(x[p], y[p])) {
-                    return false;
-                }
-            }
-        }
-
-        for (let p in y) {
-            // allows x[ p ] to be set to undefined
-            if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
-                return false;
-            }
-        }
-        return true;
     }
 };
 
