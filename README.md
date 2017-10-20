@@ -130,4 +130,16 @@ Example:
 LS.getAll(); // {'name': 'realign', 'age': 23}
 ```
 
+#### getSurplusCapacityKb
+
+```
+获取 localstorage 剩余容量（kb）
+* getSurplusCapacityKb()
+* return number
+
+Example:
+
+LS.getSurplusCapacityKb(); // 5119.998046875
+```
+
 

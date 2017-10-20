@@ -1,8 +1,8 @@
 {
-  "name": "localstorage_js",
-  "version": "0.1.0",
+  "name": "localstoragejs",
+  "version": "1.0.0",
   "description": "Encapsulate a simple LocalStorage Class",
-  "main": "index.js",
+  "main": "./src/localstorage.js",
   "scripts": {
     "precommit": "lint-staged",
     "develop": "gulp develop",
