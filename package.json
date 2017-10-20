@@ -1,6 +1,6 @@
 {
-  "name": "localstoragejs",
-  "version": "1.0.0",
+  "name": "n-localstorage",
+  "version": "0.1.0",
   "description": "Encapsulate a simple LocalStorage Class",
   "main": "./src/localstorage.js",
   "scripts": {
