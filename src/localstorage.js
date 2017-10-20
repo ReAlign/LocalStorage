@@ -66,6 +66,15 @@ let LocalStorage = {
             return res;
         }
         return false;
+    },
+    getSurplusCapacityKb() {
+        if (_.support()) {
+            let maxCapacity = 1024 * 1024 * 5;
+            let usedCapacity = JSON.stringify(this.storage).length;
+            let surplus = (maxCapacity - usedCapacity) / 1024;
+            return surplus;
+        }
+        return false;
     }
 };
 

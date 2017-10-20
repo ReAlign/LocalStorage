@@ -170,3 +170,7 @@ test('getKeyList2', function() {
 test('getAll2', function() {
     expect(_t.compareObject(LS.getAll(), {})).toBe(true);
 });
+
+test('getSurplusCapacityKb', function() {
+    expect(typeof LS.getSurplusCapacityKb() == 'number').toBe(true);
+});

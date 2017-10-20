@@ -16,3 +16,7 @@ test('getKeyListNot', function() {
 test('getAllNot', function() {
     expect(LS.getAll()).toBe(false);
 });
+
+test('getSurplusCapacityKbNot', function() {
+    expect(LS.getSurplusCapacityKb()).toBe(false);
+});
