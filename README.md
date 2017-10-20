@@ -1,7 +1,12 @@
 # LocalStorage
+
+[![NPM version][npm-image]][npm-url]
 [![NPM travis][travis-image]][github-url]
 [![codebeat badge][codebeat-image]][codebeat-url]
 [![codecov][codecov-image]][codecov-url]
+
+[npm-url]: https://www.npmjs.com/package/n-localstorage
+[npm-image]: https://img.shields.io/npm/v/n-localstorage.svg
 
 [codebeat-url]: https://codebeat.co/projects/github-com-realign-localstorage-master
 [github-url]: https://github.com/ReAlign/fastpage
