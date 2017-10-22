@@ -42,11 +42,14 @@ use ./dist/localstorage.js
 
 ***
 
-#### set
+#### set(key, value, cover)
 
 ```
 存储数据，返回 set 的对象
 * set(key, value, cover = false)
+* @params key
+* @params value
+* @params cover 是否覆盖
 * return {
     key: key,
     val: value
