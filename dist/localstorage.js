@@ -78,60 +78,79 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_util__ = __webpack_require__(2);
 
 
-let LocalStorage = {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _util = __webpack_require__(2);
+
+var _util2 = _interopRequireDefault(_util);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LocalStorage = {
     storage: window.localStorage,
-    set(key = '', value = '', cover = false) {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+    set: function set() {
+        var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+        var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+        var cover = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+        if (key && _util2.default.support()) {
             // 不覆盖
-            if(!cover && this.get(key) != null && this.get(key) != false) {
-                console.error(`data ${key} already existed.\nif you want to cover the original data, use set(key, value, true)`);
+            if (!cover && this.get(key) != null && this.get(key) != false) {
+                console.error('data ' + key + ' already existed.\nif you want to cover the original data, use set(key, value, true)');
                 return false;
             }
             this.storage.setItem(key, JSON.stringify(value));
-            let obj = {};
+            var obj = {};
             obj.key = key;
             obj.val = this.get(key);
             return obj;
         }
         return false;
     },
-    get(key = '') {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
-            return __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].jsonParse(this.storage.getItem(key));
+    get: function get() {
+        var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+        if (key && _util2.default.support()) {
+            return _util2.default.jsonParse(this.storage.getItem(key));
         }
         return false;
     },
-    has(key = '') {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+    has: function has() {
+        var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+        if (key && _util2.default.support()) {
             return this.get(key) != null;
         }
         return false;
     },
-    remove(key = '') {
-        if (key && __WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+    remove: function remove() {
+        var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+        if (key && _util2.default.support()) {
             this.storage.removeItem(key);
             return !this.get(key);
         }
         return false;
     },
-    clear() {
-        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
+    clear: function clear() {
+        if (_util2.default.support()) {
             this.storage.clear();
             return !this.storage.length;
         }
         return false;
     },
-    getKeyList() {
-        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
-            let list = [];
+    getKeyList: function getKeyList() {
+        if (_util2.default.support()) {
+            var list = [];
 
-            for (let i = 0; i < this.storage.length; i++) {
+            for (var i = 0; i < this.storage.length; i++) {
                 list.push(this.storage.key(i));
             }
 
@@ -139,40 +158,85 @@ let LocalStorage = {
         }
         return false;
     },
-    getAll() {
-        if (__WEBPACK_IMPORTED_MODULE_0__lib_util__["a" /* default */].support()) {
-            let allKeys = this.getKeyList();
-            let res = {};
-            for (let k of allKeys) {
-                res[k] = this.get(k);
+    getAll: function getAll() {
+        if (_util2.default.support()) {
+            var allKeys = this.getKeyList();
+            var res = {};
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = allKeys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var k = _step.value;
+
+                    res[k] = this.get(k);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
             }
 
             return res;
         }
         return false;
+    },
+    getSurplusCapacityKb: function getSurplusCapacityKb() {
+        if (_util2.default.support()) {
+            var maxCapacity = 1024 * 1024 * 5;
+            var usedCapacity = JSON.stringify(this.storage).length;
+            var surplus = (maxCapacity - usedCapacity) / 1024;
+            return surplus;
+        }
+        return false;
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (LocalStorage);
+exports.default = LocalStorage;
+module.exports = exports['default'];
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_localstorage__ = __webpack_require__(0);
 
 
-/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__src_localstorage__["a" /* default */]);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _localstorage = __webpack_require__(0);
+
+var _localstorage2 = _interopRequireDefault(_localstorage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _localstorage2.default;
+module.exports = exports['default'];
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-let _ = {
-    support() {
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _ = {
+    support: function support() {
         if (!window.localStorage) {
             console.error('(〒︿〒) 该浏览器不支持localstorage');
             return false;
@@ -180,8 +244,8 @@ let _ = {
 
         return true;
     },
-    jsonParse(string) {
-        let res = null;
+    jsonParse: function jsonParse(string) {
+        var res = null;
         try {
             res = JSON.parse(string);
         } catch (e) {
@@ -191,7 +255,8 @@ let _ = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (_);
+exports.default = _;
+module.exports = exports['default'];
 
 /***/ })
 /******/ ]);

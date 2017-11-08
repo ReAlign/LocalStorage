@@ -10,6 +10,14 @@ var defaultConfig = {
       libraryTarget: 'umd',
     },
     module: {
+      loaders: [
+          {
+              test: /\.js$/,
+              loader: [
+                'babel-loader',
+              ],
+          },
+      ]
     },
     plugins: [
     ],
