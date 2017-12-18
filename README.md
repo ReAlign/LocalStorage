@@ -16,7 +16,10 @@
 
 [codecov-url]: https://codecov.io/gh/ReAlign/LocalStorage
 [codecov-image]: https://codecov.io/gh/ReAlign/LocalStorage/branch/master/graph/badge.svg
+
 # Introduction
+> 让使用 localStorage 变得更简单
+
 1. 原生 `localStorage` 只能存储字符串
 2. 对于复杂数据结构，在存储之前，必须先进行序列化
 3. 对于复杂数据结构，在读取的时候，又需要反序列化
