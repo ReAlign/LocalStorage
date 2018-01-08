@@ -32,7 +32,7 @@
 
 #### ES6
 ```
-import LS from './src/localstorage';
+import LS from 'n-localstorage';
 ```
 
 #### UMD
