@@ -31,13 +31,13 @@
 # Usage
 
 #### ES6
-```
+```javascript
 import LS from 'n-localstorage';
 ```
 
 #### UMD
 
-```
+```javascript
 // download files
 use n-localstorage/dist/localstorage.js
 ```
