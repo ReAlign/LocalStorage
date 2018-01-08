@@ -38,7 +38,8 @@ import LS from 'n-localstorage';
 #### UMD
 
 ```
-use ./dist/localstorage.js
+// download files
+use n-localstorage/dist/localstorage.js
 ```
 
 ***
