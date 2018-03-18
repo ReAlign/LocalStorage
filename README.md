@@ -109,7 +109,7 @@ LS.remove('name'); // true
 #### clear
 
 ```
-清空 localstorage 数据
+清空当前域下 localstorage 数据
 * clear()
 * return boolean
 
