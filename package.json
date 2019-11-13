@@ -54,7 +54,7 @@
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "webpack": "^2.2.1",
-    "eslint": "^3.19.0",
+    "eslint": "^6.6.0",
     "eslint-config-kaola": "^0.1.3",
     "husky": "^0.13.4",
     "lint-staged": "^3.6.1",
