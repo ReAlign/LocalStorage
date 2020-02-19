@@ -59,7 +59,7 @@
     "husky": "^0.13.4",
     "lint-staged": "^3.6.1",
     "jest": "^21.2.1",
-    "codecov": "^2.3.0",
+    "codecov": "^3.6.5",
     "jsdom": "^11.3.0",
     "localstorage-mocker": "^1.4.0",
     "n-tools": "^0.0.2"
