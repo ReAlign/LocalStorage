@@ -1,0 +1,11 @@
+__test__
+src
+.babelrc
+.eslintignore
+.eslintrc
+.gitignore
+.travis.yml
+codecov.yml
+gulpfile.js
+main.js
+webpack.config.js

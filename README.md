@@ -142,6 +142,8 @@ LS.getAll(); // {'name': 'realign', 'age': 23}
 
 #### getSurplusCapacityKb
 
+**保留，但会有误差，建议用下面的新 api { getSurplusCapacity }**
+
 ```
 获取 localstorage 剩余容量（kb）
 * getSurplusCapacityKb()
@@ -152,4 +154,16 @@ Example:
 LS.getSurplusCapacityKb(); // 5119.998046875
 ```
 
+#### getSurplusCapacity
 
+```js
+/** 获取 localstorage 剩余容量
+ * getSurplusCapacity(unit)
+ * @param   unit => b | kb | mb
+ * @returns number
+ */
+
+// Example:
+
+LS.getSurplusCapacity('kb'); // 4119.998046875
+```

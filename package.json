@@ -1,8 +1,8 @@
 {
   "name": "n-localstorage",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Encapsulate a simple LocalStorage Class",
-  "main": "./src/localstorage.js",
+  "main": "./dist/localstorage.js",
   "scripts": {
     "precommit": "lint-staged",
     "develop": "gulp develop",

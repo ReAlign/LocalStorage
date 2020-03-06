@@ -75,6 +75,28 @@ let LocalStorage = {
             return surplus;
         }
         return false;
+    },
+    /**
+     * @name    获取剩余容量
+     * @param {*} unit 单位 | [ b, kb, mb ]
+     * @returns number / unit
+     */
+    getSurplusCapacity(unit = 'b') {
+        if (_.support()) {
+            const MAX = 1024 * 1024 * 5;
+            const _map = {
+                b: 1,
+                kb: 1024,
+                mb: 1024 * 1024
+            };
+            const unitLower = unit.toLowerCase();
+
+            const usedSize = _.sizeOf(JSON.stringify(this.storage));
+
+            //     sizeB            / unitNumber
+            return (MAX - usedSize) / (_map(unitLower) || 1);
+        }
+        return false;
     }
 };
 
